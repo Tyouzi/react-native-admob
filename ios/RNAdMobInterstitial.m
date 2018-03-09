@@ -1,4 +1,5 @@
 #import "RNAdMobInterstitial.h"
+#import <VungleAdapter/VungleAdapter.h>
 
 @implementation RNAdMobInterstitial {
   GADInterstitial  *_interstitial;
@@ -45,6 +46,14 @@ RCT_EXPORT_METHOD(requestAd:(RCTResponseSenderBlock)callback)
         request.testDevices = @[_testDeviceID];
       }
     }
+	
+	VungleAdNetworkExtras *extras = [[VungleAdNetworkExtras alloc] init];
+	
+	NSMutableArray *placements = [[NSMutableArray
+								   alloc]initWithObjects:@"DEFAULT10592", @"REWARDE59495", nil];
+	extras.allPlacements = placements;
+	[request registerAdNetworkExtras:extras];
+	
     [_interstitial loadRequest:request];
   } else {
     callback(@[@"Ad is already loaded."]); // TODO: make proper error via RCTUtils.h
@@ -72,13 +81,13 @@ RCT_EXPORT_METHOD(isReady:(RCTResponseSenderBlock)callback)
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
   [self.bridge.eventDispatcher sendDeviceEventWithName:@"interstitialDidLoad" body:nil];
-  _requestAdCallback(@[[NSNull null]]);
+//  _requestAdCallback(@[[NSNull null]]);
 }
 
 - (void)interstitial:(GADInterstitial *)interstitial
 didFailToReceiveAdWithError:(GADRequestError *)error {
   [self.bridge.eventDispatcher sendDeviceEventWithName:@"interstitialDidFailToLoad" body:@{@"name": [error description]}];
-  _requestAdCallback(@[[error description]]);
+//  _requestAdCallback(@[[error description]]);
 }
 
 - (void)interstitialWillPresentScreen:(GADInterstitial *)ad {

@@ -1,5 +1,6 @@
 package com.sbugert.rnadmob;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
@@ -16,6 +17,8 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.AdRequest;
+//import com.vungle.mediation.VungleAdapter;
+//import com.vungle.mediation.VungleExtrasBuilder;
 
 public class RNAdMobRewardedVideoAdModule extends ReactContextBaseJavaModule implements RewardedVideoAdListener {
     RewardedVideoAd mRewardedVideoAd;
@@ -132,6 +135,11 @@ public class RNAdMobRewardedVideoAdModule extends ReactContextBaseJavaModule imp
                         }
                     }
 
+//                    String[] placements = new String[2];
+//                    placements[0] = "DEFAULT10592";
+//                    placements[1] = "REWARDE59495";
+//                    Bundle extras = new VungleExtrasBuilder(placements).build();
+//                    AdRequest adRequest =  adRequestBuilder.addNetworkExtrasBundle(VungleAdapter.class, extras).build();
                     AdRequest adRequest = adRequestBuilder.build();
                     mRewardedVideoAd.loadAd(adUnitID, adRequest);
                 }

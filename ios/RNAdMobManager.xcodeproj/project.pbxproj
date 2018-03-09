@@ -13,6 +13,10 @@
 		A962C2531CB27DBD00E508A1 /* RNAdMobInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = A962C2521CB27DBD00E508A1 /* RNAdMobInterstitial.m */; };
 		A96DA7841C146DA600FC639B /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A96DA7811C146DA600FC639B /* BannerView.m */; };
 		A96DA7851C146DA600FC639B /* RNAdMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A96DA7831C146DA600FC639B /* RNAdMobManager.m */; };
+		DD71A5E0201EDD390062B608 /* AppLovinAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71A5DC201EDD360062B608 /* AppLovinAdapter.framework */; };
+		DD71A5E1201EDD390062B608 /* AppLovinSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71A5DD201EDD370062B608 /* AppLovinSDK.framework */; };
+		DD71A5E2201EDD390062B608 /* VungleAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71A5DE201EDD370062B608 /* VungleAdapter.framework */; };
+		DD71A5E3201EDD390062B608 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71A5DF201EDD380062B608 /* VungleSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +45,10 @@
 		A96DA7811C146DA600FC639B /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = SOURCE_ROOT; };
 		A96DA7821C146DA600FC639B /* RNAdMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAdMobManager.h; sourceTree = SOURCE_ROOT; };
 		A96DA7831C146DA600FC639B /* RNAdMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAdMobManager.m; sourceTree = SOURCE_ROOT; };
+		DD71A5DC201EDD360062B608 /* AppLovinAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppLovinAdapter.framework; sourceTree = "<group>"; };
+		DD71A5DD201EDD370062B608 /* AppLovinSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppLovinSDK.framework; sourceTree = "<group>"; };
+		DD71A5DE201EDD370062B608 /* VungleAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VungleAdapter.framework; sourceTree = "<group>"; };
+		DD71A5DF201EDD380062B608 /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD71A5E2201EDD390062B608 /* VungleAdapter.framework in Frameworks */,
+				DD71A5E1201EDD390062B608 /* AppLovinSDK.framework in Frameworks */,
+				DD71A5E3201EDD390062B608 /* VungleSDK.framework in Frameworks */,
+				DD71A5E0201EDD390062B608 /* AppLovinAdapter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +85,7 @@
 		A96DA7761C146D7200FC639B /* RNAdMobManager */ = {
 			isa = PBXGroup;
 			children = (
+				DD71A5DB201EDCF90062B608 /* Frameworks */,
 				0CB8C04C1D9143A6002BC3EF /* RNAdMobDFPManager.h */,
 				0CB8C04D1D9143A6002BC3EF /* RNAdMobDFPManager.m */,
 				A96DA7801C146DA600FC639B /* BannerView.h */,
@@ -87,6 +100,17 @@
 				A90F2F8B1D50AEF200F2A2E3 /* RNAdMobRewarded.m */,
 			);
 			path = RNAdMobManager;
+			sourceTree = "<group>";
+		};
+		DD71A5DB201EDCF90062B608 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD71A5DC201EDD360062B608 /* AppLovinAdapter.framework */,
+				DD71A5DD201EDD370062B608 /* AppLovinSDK.framework */,
+				DD71A5DE201EDD370062B608 /* VungleAdapter.framework */,
+				DD71A5DF201EDD380062B608 /* VungleSDK.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +265,12 @@
 		A96DA77E1C146D7200FC639B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../ios/**",
+					"$(PROJECT_DIR)/RNAdMobManager/Frameworks",
+					"$(PROJECT_DIR)/../../../ios/Frameworks",
+					"$(PROJECT_DIR)/RNAdMobManager/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",
@@ -255,7 +284,12 @@
 		A96DA77F1C146D7200FC639B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../../ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../ios/**",
+					"$(PROJECT_DIR)/RNAdMobManager/Frameworks",
+					"$(PROJECT_DIR)/../../../ios/Frameworks",
+					"$(PROJECT_DIR)/RNAdMobManager/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",

@@ -1,5 +1,6 @@
 package com.sbugert.rnadmob;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+//import com.vungle.mediation.VungleExtrasBuilder;
+//import com.vungle.mediation.VungleInterstitialAdapter;
 
 public class RNAdMobInterstitialAdModule extends ReactContextBaseJavaModule {
   InterstitialAd mInterstitialAd;
@@ -60,7 +63,7 @@ public class RNAdMobInterstitialAdModule extends ReactContextBaseJavaModule {
             }
             event.putString("error", errorString);
             sendEvent("interstitialDidFailToLoad", event);
-            requestAdCallback.invoke(errorString);
+//            requestAdCallback.invoke(errorString);
           }
           @Override
           public void onAdLeftApplication() {
@@ -69,7 +72,7 @@ public class RNAdMobInterstitialAdModule extends ReactContextBaseJavaModule {
           @Override
           public void onAdLoaded() {
             sendEvent("interstitialDidLoad", null);
-            requestAdCallback.invoke();
+//            requestAdCallback.invoke();
           }
           @Override
           public void onAdOpened() {
@@ -110,6 +113,12 @@ public class RNAdMobInterstitialAdModule extends ReactContextBaseJavaModule {
               adRequestBuilder = adRequestBuilder.addTestDevice(testDeviceID);
             }
           }
+          // String[] placements = new String[2];
+          // placements[0] = "DEFAULT10592";
+          // placements[1] = "REWARDE59495";
+          // Bundle extras = new VungleExtrasBuilder(placements).build();
+          // AdRequest adRequest =  adRequestBuilder.addNetworkExtrasBundle(VungleInterstitialAdapter.class, extras).build();
+          // mInterstitialAd.loadAd(adRequest);
           AdRequest adRequest = adRequestBuilder.build();
           mInterstitialAd.loadAd(adRequest);
         }
